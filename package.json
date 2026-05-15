@@ -1,0 +1,7 @@
+{
+  "name": "chugaister-booking-site",
+  "private": true,
+  "scripts": {
+    "start": "set PORT=8016&& node local-preview-server.js"
+  }
+}

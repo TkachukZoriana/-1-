@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Бронювання — Садиба Чугайстер</title>
+  <meta name="description" content="Онлайн-бронювання садиби Чугайстер: вибір будиночка, дат, гостей і додаткових послуг." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html">Садиба <span>Чугайстер</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Відкрити меню">☰</button>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Головна</a>
+        <a href="rooms.html">Будиночки</a>
+        <a class="active" href="booking.html">Бронювання</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="inner-hero">
+      <div class="container">
+        <p class="eyebrow">Онлайн-заявка</p>
+        <h1>Бронювання відпочинку</h1>
+              </div>
+    </section>
+
+    <section class="section">
+      <div class="container booking-grid">
+        <article class="booking-card">
+          <h2>Залишити заявку</h2>
+          <form id="bookingForm" novalidate>
+            <div class="form-row two-inputs">
+              <div>
+                <label for="name">Ім’я</label>
+                <input id="name" name="name" type="text" placeholder="Ваше ім’я" autocomplete="given-name" required />
+                <small class="error" id="nameError"></small>
+              </div>
+              <div>
+                <label for="surname">Прізвище</label>
+                <input id="surname" name="surname" type="text" placeholder="Ваше прізвище" autocomplete="family-name" required />
+                <small class="error" id="surnameError"></small>
+              </div>
+            </div>
+
+            <div class="form-row two-inputs">
+              <div>
+                <label for="phone">Телефон</label>
+                <input id="phone" name="phone" type="tel" placeholder="+380..." autocomplete="tel" required />
+                <small class="error" id="phoneError"></small>
+              </div>
+              <div>
+                <label for="email">Email для підтвердження</label>
+                <input id="email" name="email" type="email" placeholder="name@example.com" autocomplete="email" required />
+                <small class="helper-text">На цю адресу можна надіслати підтвердження бронювання.</small>
+                <small class="error" id="deliveryError"></small>
+              </div>
+            </div>
+
+            <div class="form-row two-inputs">
+              <div>
+                <label for="checkin">Дата заїзду</label>
+                <input id="checkin" name="checkin" type="date" required />
+              </div>
+              <div>
+                <label for="checkout">Дата виїзду</label>
+                <input id="checkout" name="checkout" type="date" required />
+              </div>
+              <small class="error full" id="dateError"></small>
+            </div>
+
+            <div class="form-row two-inputs">
+              <div>
+                <label for="roomType">Тип будиночка</label>
+                <select id="roomType" name="roomType">
+                  <option value="Для двох — 1800 грн" data-price="1800">Для двох — 1800 грн</option>
+                  <option value="Сімейний — 2500 грн" data-price="2500">Сімейний — 2500 грн</option>
+                  <option value="Покращений — 3200 грн" data-price="3200">Покращений — 3200 грн</option>
+                </select>
+              </div>
+              <div>
+                <label for="guests">Кількість гостей</label>
+                <input id="guests" name="guests" type="number" min="1" max="4" value="2" />
+              </div>
+            </div>
+
+            <fieldset class="extras-box">
+              <legend>Додаткові послуги</legend>
+              <label><input type="checkbox" class="extra" value="600" data-title="Сніданок" /> Сніданок (+600 грн)</label>
+              <label><input type="checkbox" class="extra" value="1200" data-title="Чан" /> Чан (+1200 грн)</label>
+              <label><input type="checkbox" class="extra" value="800" data-title="Трансфер" /> Трансфер (+800 грн)</label>
+            </fieldset>
+
+            <div class="form-row">
+              <label for="message">Побажання</label>
+              <textarea id="message" name="message" rows="4" placeholder="Наприклад: потрібен ранній заїзд"></textarea>
+            </div>
+
+            <button class="btn btn-primary wide" type="submit">Надіслати заявку</button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            <p class="helper-text">Після відправки ви побачите повідомлення про успішне надсилання заявки.</p>
+          </form>
+        </article>
+
+        <aside class="summary-card">
+          <h2>Попередній розрахунок</h2>
+          <div class="summary-row"><span>Ночей:</span><strong id="nightsCount">1</strong></div>
+          <div class="summary-row"><span>Базова вартість:</span><strong id="basePrice">1800 грн</strong></div>
+          <div class="summary-row"><span>Додаткові послуги:</span><strong id="extrasPrice">0 грн</strong></div>
+          <div class="summary-row total"><span>Разом:</span><strong id="totalPrice">1800 грн</strong></div>
+
+          <div class="selected-extras">
+            <h3>Обрано:</h3>
+            <ul id="extrasList">
+              <li>Додаткових послуг ще не обрано</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section alt-bg">
+      <div class="container faq-wrap">
+        <div class="section-head left">
+          <p class="eyebrow">Питання та відповіді</p>
+          <h2>Часті запитання</h2>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Чи можна з дітьми?</button>
+          <div class="faq-answer"><p>Так, сімейний будиночок підходить для відпочинку з дітьми.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Чи можна приїхати без авто?</button>
+          <div class="faq-answer"><p>Так, за запитом можна узгодити трансфер до садиби.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Коли підтверджується бронювання?</button>
+          <div class="faq-answer"><p>Після заповнення заявки адміністратор зв’язується з гостем для підтвердження.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Садиба «Чугайстер»</h3>
+        <p>Проєкт 1 рівня студентки UI/UX-25-дист Ткачук Зоряни</p>
+      </div>
+      <div>
+        <h4>Навігація</h4>
+        <ul>
+          <li><a href="index.html">Головна</a></li>
+          <li><a href="rooms.html">Будиночки</a></li>
+          <li><a href="booking.html">Бронювання</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Контакти</h4>
+        <p><a class="contact-link" href="tel:+380991234567">+38 (099) 123-45-67</a></p>
+        <p><a class="contact-link" href="mailto:chugaister@example.com">chugaister@example.com</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

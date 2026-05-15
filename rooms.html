@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Будиночки — Садиба Чугайстер</title>
+  <meta name="description" content="Оберіть будиночок у садибі Чугайстер: для двох, сімейний або покращений варіант." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html">Садиба <span>Чугайстер</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Відкрити меню">☰</button>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Головна</a>
+        <a class="active" href="rooms.html">Будиночки</a>
+        <a href="booking.html">Бронювання</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="inner-hero">
+      <div class="container">
+        <p class="eyebrow">Варіанти проживання</p>
+        <h1>Будиночки та номери</h1>
+              </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="tabs" role="tablist">
+          <button class="tab-btn active" data-tab="tab1">Для двох</button>
+          <button class="tab-btn" data-tab="tab2">Сімейний</button>
+          <button class="tab-btn" data-tab="tab3">Покращений</button>
+        </div>
+
+        <div class="tab-panel active" id="tab1">
+          <div class="room-grid">
+            <div class="room-photo photo-one"></div>
+            <article class="room-details">
+              <h2>Будиночок для двох</h2>
+              <p>Затишний варіант для пари або короткого відпочинку на вихідні. Усередині є двоспальне ліжко, санвузол, чайник та невелика тераса.</p>
+              <ul class="feature-list compact">
+                <li>1 двоспальне ліжко</li>
+                <li>Тераса з видом на гори</li>
+                <li>Сніданок за бажанням</li>
+              </ul>
+              <p class="price">від 1800 грн / ніч</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab2">
+          <div class="room-grid">
+            <div class="room-photo photo-two"></div>
+            <article class="room-details">
+              <h2>Сімейний будиночок</h2>
+              <p>Оптимальний варіант для сім’ї або компанії з 3–4 осіб. Є два спальні місця, місце для зберігання речей та обідня зона.</p>
+              <ul class="feature-list compact">
+                <li>До 4 гостей</li>
+                <li>Обідня зона</li>
+                <li>Парковка поруч</li>
+              </ul>
+              <p class="price">від 2500 грн / ніч</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab3">
+          <div class="room-grid">
+            <div class="room-photo photo-three"></div>
+            <article class="room-details">
+              <h2>Покращений варіант</h2>
+              <p>Більше простору, кращий краєвид та розширений набір зручностей. Підійде тим, хто хоче максимально комфортний відпочинок.</p>
+              <ul class="feature-list compact">
+                <li>Панорамні вікна</li>
+                <li>Зона відпочинку</li>
+                <li>Пріоритетне бронювання чану</li>
+              </ul>
+              <p class="price">від 3200 грн / ніч</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-bg">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Додаткові послуги</p>
+          <h2>Що ще можна замовити</h2>
+        </div>
+        <div class="cards-grid">
+          <article class="card">
+            <h3>Чан</h3>
+            <p>Вечірній чан з видом на гори — одна з найпопулярніших послуг серед гостей.</p>
+          </article>
+          <article class="card">
+            <h3>Сніданок</h3>
+            <p>Домашній сніданок можна додати до бронювання при заповненні форми.</p>
+          </article>
+          <article class="card">
+            <h3>Трансфер</h3>
+            <p>За потреби можна домовитися про трансфер від вокзалу або автостанції.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Садиба «Чугайстер»</h3>
+        <p>Проєкт 1 рівня студентки UI/UX-25-дист Ткачук Зоряни</p>
+      </div>
+      <div>
+        <h4>Навігація</h4>
+        <ul>
+          <li><a href="index.html">Головна</a></li>
+          <li><a href="rooms.html">Будиночки</a></li>
+          <li><a href="booking.html">Бронювання</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Контакти</h4>
+        <p><a class="contact-link" href="tel:+380991234567">+38 (099) 123-45-67</a></p>
+        <p><a class="contact-link" href="mailto:chugaister@example.com">chugaister@example.com</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
